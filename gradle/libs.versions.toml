@@ -1,0 +1,10 @@
+[versions]
+androidxComposeBom = "2024.05.00"
+androidxCore = "1.13.1"
+
+
+[libraries]
+
+[plugins]
+
+
