@@ -1,6 +1,8 @@
 plugins {
     id("org.jetbrains.kotlin.android")
     alias(libs.plugins.android.library)
+    id("com.google.devtools.ksp")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -9,6 +11,6 @@ android {
 }
 
 dependencies {
-
-    testImplementation("org.testng:testng:6.9.6")
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 }
