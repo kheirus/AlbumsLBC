@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.library")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.library)
 }
 
 android {
@@ -10,4 +10,5 @@ android {
 
 dependencies {
 
+    testImplementation("org.testng:testng:6.9.6")
 }

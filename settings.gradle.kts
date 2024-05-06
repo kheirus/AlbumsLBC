@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "AlbumsLBC"
 include(":app")
 include(":feature:album")
+include(":core:network")
