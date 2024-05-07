@@ -1,4 +1,4 @@
-package com.kdroid_consulting.album
+package com.kdroid_consulting.data
 
 import org.junit.Test
 

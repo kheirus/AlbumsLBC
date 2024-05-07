@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kdroid_consulting.core.network"
+    namespace = "com.kdroid_consulting.core.data"
     compileSdk = 34
 
     compileOptions {
@@ -23,13 +23,17 @@ android {
 }
 
 dependencies {
+    api(project(":core:common"))
+    api(project(":core:domain"))
+    api(project(":core:network"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.kotlin.serialization)
-    implementation(libs.kotlinx.serialization.json)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     ksp(libs.hilt.ext.compiler)
+    testImplementation(libs.junit)
 }

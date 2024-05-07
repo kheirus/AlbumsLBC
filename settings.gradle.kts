@@ -17,3 +17,6 @@ rootProject.name = "AlbumsLBC"
 include(":app")
 include(":feature:album")
 include(":core:network")
+include(":core:data")
+include(":core:common")
+include(":core:domain")
