@@ -33,7 +33,7 @@ class ApiClientImpl(private val appContext: Application): ApiClient {
             coerceInputValues = true
         }
         Retrofit.Builder()
-            .baseUrl("https://static.leboncoin.fr/img/shared/technical-test.json")
+            .baseUrl("https://static.leboncoin.fr/img/shared/")
             .addConverterFactory(
                 json.asConverterFactory("application/json".toMediaType()),
             )
@@ -53,12 +53,8 @@ class ApiClientImpl(private val appContext: Application): ApiClient {
 }
 
 class AuthInterceptor : Interceptor {
-
-    private val cacheControl = CacheControl.Builder().maxAge(8, TimeUnit.HOURS).build() // 8 hours
-
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
-            .cacheControl(cacheControl)
             .addHeader("User-Agent", "Android")
 
         return chain.proceed(request.build())
