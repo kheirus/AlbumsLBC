@@ -1,6 +1,7 @@
 package com.kdroid_consulting.domain.repository
 
-import com.kdroid_consulting.common.model.Album
+import com.kdroid_consulting.common.Result
+import com.kdroid_consulting.domain.model.Album
 import kotlinx.coroutines.flow.Flow
 
 interface AlbumsRepository {
