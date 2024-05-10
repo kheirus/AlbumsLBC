@@ -76,9 +76,5 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview.android)
     implementation(libs.hilt.android)
     implementation(libs.hilt.nav.compose)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.okhttp.logging)
-    implementation(libs.retrofit.core)
-    implementation(libs.retrofit.kotlin.serialization)
     implementation(platform(libs.androidx.compose.bom))
 }

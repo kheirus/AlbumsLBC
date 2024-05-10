@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
@@ -26,6 +27,8 @@ dependencies {
     api(project(":core:common"))
     api(project(":core:domain"))
     api(project(":core:network"))
+
+    compileOnly(libs.ksp.gradlePlugin)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)

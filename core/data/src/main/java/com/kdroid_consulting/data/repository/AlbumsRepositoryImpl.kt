@@ -1,8 +1,10 @@
 package com.kdroid_consulting.data.repository
 
-import com.kdroid_consulting.common.model.Album
+import com.kdroid_consulting.common.Result
 import com.kdroid_consulting.data.api.AlbumsApi
+import com.kdroid_consulting.domain.model.Album
 import com.kdroid_consulting.domain.repository.AlbumsRepository
+import com.kdroid_consulting.model.toAlbums
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
@@ -16,10 +18,10 @@ class AlbumsRepositoryImpl (
             when {
                 response.isSuccessful -> {
                     val albums = response.body().orEmpty()
-                    Result.success(albums)
+                    Result.Success(albums.toAlbums())
                 }
                 else -> {
-                    Result.failure(Exception("Error to get albums for LBC test"))
+                    Result.Failure(Exception("Error to get albums for LBC test"))
                 }
             }
         )

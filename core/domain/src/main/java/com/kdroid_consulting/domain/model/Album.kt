@@ -1,10 +1,11 @@
-package com.kdroid_consulting.common.model
+package com.kdroid_consulting.domain.model
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 data class Album (
     val albumId: Int,
+    val songs: List<Song>
+)
+
+data class Song (
     val id: Int,
     val title: String,
     val url: String,

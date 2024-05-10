@@ -8,6 +8,14 @@ plugins {
 }
 
 android {
+    defaultConfig {
+        minSdk = 24
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+
     namespace = "com.kdroid_consulting.feature.album"
     compileSdk = 34
 
@@ -20,12 +28,37 @@ android {
             jvmTarget = JavaVersion.VERSION_17.toString()
         }
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.13"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
     implementation(project(":core:domain"))
 
-    implementation(libs.hilt.android)
+    compileOnly(libs.ksp.gradlePlugin)
     ksp(libs.hilt.android.compiler)
     ksp(libs.hilt.ext.compiler)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.test.ext)
+    implementation(libs.androidx.test.rules)
+    implementation(libs.androidx.ui.tooling.preview.android)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.nav.compose)
+    implementation(platform(libs.androidx.compose.bom))
 }
