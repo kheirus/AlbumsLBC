@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,9 +27,10 @@ fun AlbumComponent(
     album: Album,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier
-        .fillMaxWidth()
-        .padding(4.dp)
+    Column(
+        modifier
+            .fillMaxWidth()
+            .padding(4.dp)
     ) {
         Text(
             text = stringResource(R.string.album_title, album.albumId),
@@ -42,11 +43,13 @@ fun AlbumComponent(
             color = MaterialTheme.colorScheme.onPrimaryContainer
         )
         LazyRow {
-            items(album.songs) { song ->
+            itemsIndexed(
+                items = album.songs,
+                key = { index, song -> "${song.id}$index" }
+            ) { _, song ->
                 SongComponent(song)
             }
         }
-
     }
 }
 
