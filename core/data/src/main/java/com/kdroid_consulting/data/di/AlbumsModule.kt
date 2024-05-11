@@ -3,7 +3,7 @@ package com.kdroid_consulting.data.di
 import com.kdroid_consulting.data.api.AlbumsApi
 import com.kdroid_consulting.data.repository.AlbumsRepositoryImpl
 import com.kdroid_consulting.domain.repository.AlbumsRepository
-import com.kdroid_consulting.domain.repository.usecase.GetAlbumsUseCase
+import com.kdroid_consulting.domain.usecase.GetAlbumsUseCase
 import com.kdroid_consulting.network.ApiClient
 import dagger.Module
 import dagger.Provides

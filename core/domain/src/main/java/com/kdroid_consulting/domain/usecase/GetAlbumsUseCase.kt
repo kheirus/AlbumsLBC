@@ -1,4 +1,4 @@
-package com.kdroid_consulting.domain.repository.usecase
+package com.kdroid_consulting.domain.usecase
 
 import com.kdroid_consulting.domain.repository.AlbumsRepository
 
