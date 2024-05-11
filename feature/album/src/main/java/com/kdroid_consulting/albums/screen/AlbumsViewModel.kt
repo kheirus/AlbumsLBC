@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kdroid_consulting.common.Result
 import com.kdroid_consulting.domain.model.Album
-import com.kdroid_consulting.domain.repository.usecase.GetAlbumsUseCase
+import com.kdroid_consulting.domain.usecase.GetAlbumsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
