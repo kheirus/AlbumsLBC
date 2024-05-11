@@ -45,6 +45,7 @@ dependencies {
     implementation(project(":core:domain"))
 
     compileOnly(libs.ksp.gradlePlugin)
+    debugImplementation(libs.androidx.ui.tooling)
     ksp(libs.hilt.android.compiler)
     ksp(libs.hilt.ext.compiler)
 
@@ -60,5 +61,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview.android)
     implementation(libs.hilt.android)
     implementation(libs.hilt.nav.compose)
+    implementation(libs.glide)
     implementation(platform(libs.androidx.compose.bom))
 }

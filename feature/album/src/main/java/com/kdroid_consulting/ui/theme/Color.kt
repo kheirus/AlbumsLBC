@@ -1,4 +1,4 @@
-package com.kdroid_consulting.albumslbc.ui.theme
+package com.kdroid_consulting.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
