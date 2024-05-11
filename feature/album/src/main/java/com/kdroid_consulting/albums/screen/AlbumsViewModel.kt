@@ -1,4 +1,4 @@
-package com.kdroid_consulting.albums
+package com.kdroid_consulting.albums.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,8 +17,8 @@ class AlbumsViewModel @Inject constructor(
     private val getAlbumsUseCase: GetAlbumsUseCase
 ) : ViewModel() {
 
-    private val _albumsState = MutableStateFlow<AlbumsUiState>(AlbumsUiState.Loading)
-    var albumsState = _albumsState.asStateFlow()
+    private var _albumsState = MutableStateFlow<AlbumsUiState>(AlbumsUiState.Loading)
+    val albumsState = _albumsState.asStateFlow()
 
     init {
         viewModelScope.launch {

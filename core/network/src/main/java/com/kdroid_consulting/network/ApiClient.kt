@@ -55,8 +55,6 @@ class ApiClientImpl(private val appContext: Application): ApiClient {
 class AuthInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
-            .addHeader("User-Agent", "Android")
-
         return chain.proceed(request.build())
     }
 }

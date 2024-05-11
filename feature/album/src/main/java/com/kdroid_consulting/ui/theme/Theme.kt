@@ -1,4 +1,4 @@
-package com.kdroid_consulting.albumslbc.ui.theme
+package com.kdroid_consulting.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -14,6 +14,8 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+
+// todo: more improvement to move to the core/common/ui module
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -36,7 +38,6 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
-
 @Composable
 fun AlbumsLBCTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
