@@ -1,6 +1,7 @@
 package com.kdroid_consulting.data.di
 
 import com.kdroid_consulting.data.api.AlbumsApi
+import com.kdroid_consulting.data.dao.AlbumsDao
 import com.kdroid_consulting.data.repository.AlbumsRepositoryImpl
 import com.kdroid_consulting.domain.repository.AlbumsRepository
 import com.kdroid_consulting.domain.usecase.GetAlbumsUseCase
@@ -17,9 +18,12 @@ object AlbumsModule {
 
     @Provides
     @Singleton
-    fun provideAlbumsRepository(client: ApiClient): AlbumsRepository {
+    fun provideAlbumsRepository(
+        client: ApiClient,
+        albumsDao: AlbumsDao
+    ): AlbumsRepository {
         val api = client.createService(AlbumsApi::class.java)
-        return AlbumsRepositoryImpl(api)
+        return AlbumsRepositoryImpl(api, albumsDao)
     }
 
     @Provides

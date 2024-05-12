@@ -29,14 +29,18 @@ dependencies {
     api(project(":core:network"))
 
     compileOnly(libs.ksp.gradlePlugin)
+    ksp(libs.hilt.android.compiler)
+    ksp(libs.hilt.ext.compiler)
+    ksp(libs.room.compiler)
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.hilt.android)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.okhttp.logging)
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.kotlin.serialization)
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.android.compiler)
-    ksp(libs.hilt.ext.compiler)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+
     testImplementation(libs.junit)
 }
