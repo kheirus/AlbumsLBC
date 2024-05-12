@@ -14,4 +14,5 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.room) apply false
 }

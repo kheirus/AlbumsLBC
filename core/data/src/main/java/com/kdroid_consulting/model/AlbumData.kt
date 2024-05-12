@@ -13,7 +13,7 @@ data class AlbumData (
     val thumbnailUrl: String
 )
 
-fun List<AlbumData>.toAlbums(): List<Album> {
+fun List<AlbumData>.toDomainAlbums(): List<Album> {
     return this
         .groupBy { it.albumId }
         .map { (albumId, albumDataList) ->
@@ -28,4 +28,14 @@ fun List<AlbumData>.toAlbums(): List<Album> {
 
             Album(albumId = albumId, songs = songs)
         }
+}
+
+fun AlbumData.toEntityAlbum(): AlbumsEntity {
+    return AlbumsEntity(
+        albumId = albumId,
+        id = id,
+        title = title,
+        url = url,
+        thumbnailUrl = thumbnailUrl
+    )
 }

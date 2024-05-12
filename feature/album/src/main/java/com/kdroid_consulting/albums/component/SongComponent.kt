@@ -12,7 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.placeholder
 import com.kdroid_consulting.domain.model.Song
+import com.kdroid_consulting.feature.album.R
 import com.kdroid_consulting.ui.theme.AlbumsLBCTheme
 import com.kdroid_consulting.ui.toUrlWithHeader
 
@@ -30,6 +32,7 @@ fun SongComponent(
             modifier = Modifier
                 .height(120.dp)
                 .width(120.dp),
+            failure = placeholder(R.drawable.placeholder),
             contentDescription = song.title
         )
         Text(
