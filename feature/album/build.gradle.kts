@@ -49,6 +49,7 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     ksp(libs.hilt.ext.compiler)
 
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.compose.foundation)
@@ -59,8 +60,11 @@ dependencies {
     implementation(libs.androidx.test.ext)
     implementation(libs.androidx.test.rules)
     implementation(libs.androidx.ui.tooling.preview.android)
+    implementation(libs.glide)
     implementation(libs.hilt.android)
     implementation(libs.hilt.nav.compose)
-    implementation(libs.glide)
-    implementation(platform(libs.androidx.compose.bom))
+
+    testImplementation(libs.junit)
+    testImplementation (libs.mockk)
+    testImplementation(libs.coroutines.test)
 }
