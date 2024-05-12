@@ -47,6 +47,7 @@ class AlbumsRepositoryTest {
             .getAlbums()
             .first()
 
+        assert(result is Result.Success)
         assertEquals(
             (result as Result.Success).data,
             fakeDataAlbums.toDomainAlbums()
@@ -60,7 +61,7 @@ class AlbumsRepositoryTest {
         val result = repository
             .getAlbums()
             .first()
-
+        assert(result is Result.Success)
         assertEquals(
             (result as Result.Success).data,
             fakeDataAlbums.toDomainAlbums()

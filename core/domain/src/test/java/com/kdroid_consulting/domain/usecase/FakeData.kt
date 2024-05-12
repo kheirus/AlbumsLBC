@@ -1,24 +1,22 @@
-package com.kdroid_consulting.data.repository
+package com.kdroid_consulting.domain.usecase
 
-import com.kdroid_consulting.model.AlbumData
+import com.kdroid_consulting.domain.model.Album
+import com.kdroid_consulting.domain.model.Song
 
-val fakeDataAlbums = listOf(
-    AlbumData(
-        albumId = 1,
+val songs = listOf(
+    Song(
         id = 1,
         title = "accusamus beatae ad facilis cum similique qui sunt",
         url = "https://via.placeholder.com/600/92c952",
         thumbnailUrl =  "https://via.placeholder.com/150/92c952"
     ),
-    AlbumData(
-        albumId = 1,
+    Song(
         id = 2,
         title = "reprehenderit est deserunt velit ipsam",
         url = "https://via.placeholder.com/600/771796",
         thumbnailUrl =  "https://via.placeholder.com/600/771796"
     ),
-    AlbumData(
-        albumId = 1,
+    Song(
         id = 3,
         title = "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
         url = "https://via.placeholder.com/600/d32776",
@@ -26,4 +24,15 @@ val fakeDataAlbums = listOf(
     )
 )
 
-val errorCode = listOf(400..499, 500..599).flatMap { it.toList() }.random()
+val fakeDomainAlbums = listOf(
+    Album(albumId = 0,
+        songs = songs
+    ),
+    Album(albumId = 1,
+        songs = songs
+    ),
+    Album(
+        albumId = 2,
+        songs = songs
+    )
+)
