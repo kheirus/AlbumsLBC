@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kdroid_consulting.domain.model.Album
 import com.kdroid_consulting.domain.model.Song
-import com.kdroid_consulting.ui.theme.AlbumsLBCTheme
+import com.kdroid_consulting.ds.theme.AlbumsLBCTheme
 
 /**
  * A Catalog is a list of Album.

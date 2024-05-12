@@ -1,4 +1,4 @@
-package com.kdroid_consulting.ui.theme
+package com.kdroid_consulting.ds.theme
 
 import androidx.compose.ui.graphics.Color
 
