@@ -11,7 +11,8 @@ import com.kdroid_consulting.model.toDomainAlbums
 import com.kdroid_consulting.model.toEntityAlbum
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 
 class AlbumsRepositoryImpl (
@@ -19,31 +20,30 @@ class AlbumsRepositoryImpl (
     private val albumsDao: AlbumsDao
 ) : AlbumsRepository {
     override suspend fun getAlbums(): Flow<Result<List<Album>>> {
-        //todo: should introduce a timer (or another parameter) to force update cache
-        if (getCachedData().isEmpty()) {
-            val response = api.getAlbums()
-            when {
-                response.isSuccessful -> {
-                    val albums = response.body().orEmpty()
-                    insertToDatabase(albums)
-                    Result.Success(albums.toDomainAlbums())
+        return flow {
+            // If the cache is empty, fetch data from API and fill the database
+            if (getCachedData().isEmpty()) {
+                val response = api.getAlbums()
+                when {
+                    response.isSuccessful -> {
+                        val albums = response.body().orEmpty()
+                        insertToDatabase(albums)
+                        emit(Result.Success(getCachedData()))
+                    }
+                    else -> {
+                        emit(Result.Failure(Exception("Error to get albums for LBC test")))
+                    }
                 }
-                else -> {
-                    Result.Failure(Exception("Error to get albums for LBC test"))
-                }
+                // If the cache is not empty, return the cached data
+            } else {
+                emit(Result.Success(getCachedData()))
             }
-        }
-        // Return the data from the cache after updating the data base
-        return flowOf(
-            Result.Success(
-                getCachedData().toDomainAlbums()
-            )
-        )
+        }.flowOn(Dispatchers.IO)
     }
 
-    private suspend fun getCachedData(): List<AlbumsEntity> =
+    private suspend fun getCachedData(): List<Album> =
         withContext(Dispatchers.IO){
-            albumsDao.getAll()
+            albumsDao.getAll().toDomainAlbums()
         }
 
     private suspend fun insertToDatabase(albums: List<AlbumData>) {
