@@ -15,8 +15,7 @@ import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
 import com.kdroid_consulting.domain.model.Song
 import com.kdroid_consulting.feature.album.R
-import com.kdroid_consulting.ui.theme.AlbumsLBCTheme
-import com.kdroid_consulting.ui.toUrlWithHeader
+import com.kdroid_consulting.ds.theme.AlbumsLBCTheme
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable

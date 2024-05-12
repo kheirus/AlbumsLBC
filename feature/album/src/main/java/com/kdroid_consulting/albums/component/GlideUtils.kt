@@ -1,4 +1,4 @@
-package com.kdroid_consulting.ui
+package com.kdroid_consulting.albums.component
 
 import com.bumptech.glide.load.model.GlideUrl
 

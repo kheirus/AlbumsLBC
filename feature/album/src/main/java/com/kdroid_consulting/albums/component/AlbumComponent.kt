@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.kdroid_consulting.domain.model.Album
 import com.kdroid_consulting.domain.model.Song
 import com.kdroid_consulting.feature.album.R
-import com.kdroid_consulting.ui.theme.AlbumsLBCTheme
+import com.kdroid_consulting.ds.theme.AlbumsLBCTheme
 
 /**
  * An Album is a list of songs with the same albumId.

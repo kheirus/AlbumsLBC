@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.kdroid_consulting.ui.theme.AlbumsLBCTheme
+import com.kdroid_consulting.ds.theme.AlbumsLBCTheme
 
 @Composable
 fun AlbumsLoadingComponent(modifier: Modifier = Modifier) {
