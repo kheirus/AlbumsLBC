@@ -77,10 +77,7 @@ private fun AlbumComponentPreview() {
                 thumbnailUrl =  "https://via.placeholder.com/150/d32776"
             )
         )
-        val album = Album(
-            albumId = 1,
-            songs = songs
-        )
+        val album = Album(albumId = 1, songs = songs)
         AlbumComponent(album)
     }
 }
