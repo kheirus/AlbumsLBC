@@ -12,45 +12,67 @@ The **AlbumsLBC** app follows the
 and has been greatly inspired by [nowinandroid](https://github.com/android/nowinandroid)
 
 # Module Responsibilities
+As the project was developed as a professional application, the choice of modularization was 
+important obviously for separation of concerns but also for these reasons:
 
-## Feature Module:
-Contains the Album feature. This module is responsible for the UI layer, where you will find the 
+#### 1.  Improved maintainability: 
+Each module is responsible for a specific set of functionality, making it easier to maintain and
+update the code separately.
+
+Multiple teams can collaborate on this project, with each team working in a separate module, thereby
+minimizing the likelihood of significant conflicts.
+
+#### 2.  Increased reusability:
+Modules can be reused in an other projects (or another internal module), reducing development 
+time and effort.
+
+#### 3.  Enhanced testability: 
+Modules can be tested independently, making it easier to identify and fix bugs.
+
+#### 4.  Scalability: 
+The app can be easily scaled to accommodate new features and functionality by adding new modules or 
+extending existing ones.
+
+**Here is the modules used on this project:** 
+
+## Feature
+Contains the **Album** feature. This module is responsible for the UI layer, where you could find the 
 Screen and its Components. The ViewModel also belongs to this module since it's responsible for 
 managing the UI state and data displayed on it.
 
-## Core Module:
-Provides foundational classes and utilities which revolve around the UI.
+## Core
+Provides foundational classes and utilities which revolve around the UI, and contains these modules:
 
-## Data Module:
+### Network
+Defines the network API for fetching albums.
+Provides an implementation of the AlbumsApi interface.
+
+### Data
 Defines the implementation of the Repository (since the interface belongs to the Domain layer).
 
-## Domain Module:
+### Domain
 Defines the data model and use cases used by the AlbumsViewModel.
 The repository is defined as interface in the domain layer and not in the data one (unlike
 nowinandroid) as I consider it that's contribute to the domain business logic definition
 
-## Network Module:
-Defines the network API for fetching albums.
-Provides an implementation of the AlbumsApi interface.
-
 # Third-party libraries choice
-#### Hilt:
+#### Hilt
 To facilitate testing of components, **AlbumsLBC** uses dependency injection with
 [Hilt](https://developer.android.com/training/dependency-injection/hilt-android).
 
-#### Glide:
+#### Glide
 To load images efficiently I preferred using [Glide](https://bumptech.github.io/glide/int/compose.html)
 over an other library for two reasons : 
 1. Already used it and master it
 2. Described as focused on smooth scrolling in the [Android official documentation](https://developer.android.com/develop/ui/compose/graphics/images/loading)
 
-#### MockK: 
+#### MockK
 [MockK](https://mockk.io/) is easy to use and implement and facilitate to mocking data and use some Kotlin DSL features
 
-#### Retrofit & OkHttp: 
+#### Retrofit & OkHttp
 The essentials for creating an API interface and making http calls easily
 
-#### Room: 
+#### Room
 To saving data in a local database, **AlbumsLBC** use [Room](https://developer.android.com/training/data-storage/room).
 The choice was made on Room for performance and scalability reasons. 
 I could use a simple DataStore to store a simple json file, but if the project grows, the performance 
@@ -84,7 +106,7 @@ Describe the loading state
 - [SongComponent.kt](feature%2Falbum%2Fsrc%2Fmain%2Fjava%2Fcom%2Fkdroid_consulting%2Falbums%2Fcomponent%2FSongComponent.kt): 
 Describe a song
 
-All the Components contains a Preview to facilitate the understanding.
+All the Components contains a _Preview_ to facilitate the understanding.
 
 # License
 
