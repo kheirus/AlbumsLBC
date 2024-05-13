@@ -60,16 +60,9 @@ private fun AlbumCatalogComponentPreview() {
         )
         AlbumsCatalogComponent(
             listOf(
-                Album(albumId = 0,
-                    songs = songs
-                ),
-                Album(albumId = 1,
-                    songs = songs
-                ),
-                Album(
-                    albumId = 2,
-                    songs = songs
-                )
+                Album(albumId = 0, songs = songs),
+                Album(albumId = 1, songs = songs),
+                Album(albumId = 2, songs = songs)
             )
         )
     }
